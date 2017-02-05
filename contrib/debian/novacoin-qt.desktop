@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=eCoin
+Comment=eCoin P2P Cryptocurrency
+Comment[ru]=eCoin, P2P криптовалюта
+Comment[fr]=eCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=eCoin, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/eCoin-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/eCoin80.xpm
+MimeType=x-scheme-handler/eCoin;
+Categories=Office;

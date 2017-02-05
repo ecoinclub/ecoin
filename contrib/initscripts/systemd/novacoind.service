@@ -1,0 +1,11 @@
+[Unit]
+Description=eCoin daemon serivce
+After=network.target
+
+[Service]
+Type=simple
+User=eCoin
+ExecStart=/opt/eCoin/eCoind
+
+[Install]
+WantedBy=multi-user.target

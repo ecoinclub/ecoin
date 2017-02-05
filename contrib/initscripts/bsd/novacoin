@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# PROVIDE: eCoin
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# eCoin_enable (bool): Set to NO by default. Set this variable to YES if you want to enable eCoin service.
+# eCoin_config (path): Set to /usr/local/etc/eCoin.conf by default.
+# eCoin_user:  The user account eCoin daemon runs as. It uses 'root' user by default.
+# eCoin_group: The group account eCoin daemon runs as. It uses 'wheel' group by default.
+# eCoin_datadir (str): Default to "/var/db/eCoin". Base data directory.
+
+. /etc/rc.subr
+
+name=eCoin
+rcvar=eCoin_enable
+
+: ${eCoin_enable:=NO}
+: ${eCoin_config=/usr/local/etc/eCoin.conf}
+: ${eCoin_datadir=/var/db/eCoin}
+: ${eCoin_user="root"}
+: ${eCoin_group="wheel"}
+
+required_files=${eCoin_config}
+command=/usr/local/bin/eCoind
+eCoin_chdir=${eCoin_datadir}
+pidfile="${eCoin_datadir}/eCoind.pid"
+stop_cmd=eCoin_stop
+command_args="-conf=${eCoin_config} -datadir=${eCoin_datadir} -daemon -pid=${pidfile}"
+start_precmd="${name}_prestart"
+
+eCoin_create_datadir()
+{
+	echo "Creating data directory"
+	eval mkdir -p ${eCoin_datadir}
+	[ $? -eq 0 ] && chown -R ${eCoin_user}:${eCoin_group} ${eCoin_datadir}
+}
+
+eCoin_prestart()
+{
+	if [ ! -d "${eCoin_datadir}/." ]; then
+		eCoin_create_datadir || return 1
+	fi
+}
+
+eCoin_requirepidfile()
+{
+	if [ ! "0`check_pidfile ${pidfile} ${command}`" -gt 1 ]; then
+		echo "${name} not running? (check $pidfile)."
+		exit 1
+	fi
+}
+
+eCoin_stop()
+{
+    eCoin_requirepidfile
+
+	echo "Stopping ${name}."
+	eval ${command} -conf=${eCoin_config} -datadir=${eCoin_datadir} stop
+	wait_for_pids ${rc_pid}
+}
+
+load_rc_config $name
+run_rc_command "$1"

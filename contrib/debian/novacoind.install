@@ -1,0 +1,2 @@
+debian/bin/eCoind usr/bin
+src/eCoind usr/lib/eCoin

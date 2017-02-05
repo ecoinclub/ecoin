@@ -1,0 +1,9 @@
+Building eCoin
+
+See doc/readme-qt.rst for instructions on building eCoin Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of eCoin.
+
+See doc/build-*.txt for instructions on building eCoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of eCoin.

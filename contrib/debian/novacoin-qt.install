@@ -1,0 +1,5 @@
+eCoin-qt usr/bin
+share/pixmaps/eCoin32.xpm usr/share/pixmaps
+share/pixmaps/eCoin80.xpm usr/share/pixmaps
+debian/eCoin-qt.desktop usr/share/applications
+debian/eCoin-qt.protocol usr/share/kde4/services/

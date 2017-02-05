@@ -1,0 +1,11 @@
+[Protocol]
+exec=eCoin-qt '%u'
+protocol=eCoin
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

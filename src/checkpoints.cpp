@@ -26,6 +26,13 @@ namespace Checkpoints
         boost::assign::map_list_of
         ( 0,     std::make_pair(hashGenesisBlock, 1360105017) )
         ( 1, std::make_pair(uint256("0x000008cfe895c8aab4e1396016dacb5b3f0ce24748b69f6c40ee8cbc665ea3b6"), 1364674052) )
+        (41900, std::make_pair(uint256("0x27d443597f449d86beb4eeb59098ab507298c1a1b75b9616862aaab3ed5ef045"), 1496367729) )
+		(41901, std::make_pair(uint256("0x2dc31ea8fc0398288d40f61242d5ebd4c267796e2ebf0caceaf197c4fb0f43c3"), 1496734827) )
+		(41902, std::make_pair(uint256("0x08fcd46ceda52aab9b36a0972e7f218e4b1de2b78cb7cc18881a4bde3a6cc9e9"), 1496734842) )
+		(41903, std::make_pair(uint256("0x3f5b5f9e43b5aa211deb94f178b5628c991141f6412b5789b0fc070f1b5276f8"), 1496734842) )
+		(41904, std::make_pair(uint256("0x8b599352fd46df392e2046f0601f136de2054a58d0b719c83d549d92946d35fc"), 1496734902) )
+		(41905, std::make_pair(uint256("0xb426ab406d745c277c713c3bef9d725ba9eef89bc10ced644f937d2544a74913"), 1496735237) )
+		(41906, std::make_pair(uint256("0xc4def988ea3ca6804a765d2eb4a427a480501c8e63b54db1815ec372048fa851"), 1496736963) )
     ;
 
     // TestNet has no checkpoints
